@@ -217,7 +217,8 @@ const drOrchid = new Game(
   "PhD in plant toxicology. Adopted daughter of Mr. Boddy",
   26,
   "http://www.radiotimes.com/uploads/images/Original/111967.jpg",
-  "Scientist"
+  "Scientist",
+  game
 );
 
 const charactersArray = [drOrchid, mrMustard];
@@ -235,6 +236,34 @@ function pickMystery(arr1, arr2, arr3) {
     room: this.randomSelector(arr2),
     weapon: this.randomSelector(arr3)
   };
+}
+
+const btn = document.getElementById("start-btn");
+
+// const header = document.getElementById("murderer"); //h1
+// const image = document.getElementById("img");
+
+const header = document.createElement("h1");
+const image = document.createElement("img");
+const body = document.getElementsByTagName("body")[0];
+
+const input = document.getElementById("input");
+console.log(input);
+debugger;
+btn.addEventListener("click", function() {
+  //apply logic
+  debugger;
+  console.log(input.value);
+  const mystery = pickMystery(charactersArray, roomsArray, weaponsArray);
+  header.innerText = mystery.character.first_name;
+  image.src = mystery.character.image;
+
+  body.append(header);
+  body.append(image);
+});
+
+function callBack() {
+  //apply logic on click
 }
 
 function showMystery() {
